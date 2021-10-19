@@ -27,7 +27,7 @@ describe('My Contact page Test Suite', function()
     cy.contains('Get In Touch');
     cy.contains('Business Hours');
     });
-
+    
     it('Requires name in contact form',function() {
     contactPage.getPhone().type(this.data.phone);//phone
     contactPage.getEmail().type(this.data.email);//email

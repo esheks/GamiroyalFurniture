@@ -1,15 +1,22 @@
 {
-  "name": "gamfurniture",
+  "name": "gamiroyalfurniture",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/esheks/GamiroyalFurniture.git"
+  },
   "author": "",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/esheks/GamiroyalFurniture/issues"
+  },
+  "homepage": "https://github.com/esheks/GamiroyalFurniture#readme",
   "dependencies": {
-    "cypress": "^8.6.0",
-    "cypress-xpath": "^1.6.2"
+    "cypress": "^8.6.0"
   }
 }
