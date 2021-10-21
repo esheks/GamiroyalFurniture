@@ -15,7 +15,7 @@ describe('My  Mobile Contact page Test Suite', function()
         cy.visit(Cypress.env('url'))
         cy.viewport('iphone-6') 
         contactPage.clickMenu().click();
-        contactPage.clickMenuContact().click();
+        cy.contains('Contact').click({force: true});
     })
      
     //import page class 

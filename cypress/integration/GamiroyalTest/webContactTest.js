@@ -14,7 +14,7 @@ describe('My Contact page Test Suite', function()
 
         cy.visit(Cypress.env('url'))
         cy.viewport(1280, 720);
-        contactPage.clickContact().click();
+        cy.contains('Contact').click({force: true});
     })
      
     //import page class 

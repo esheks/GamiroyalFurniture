@@ -13,12 +13,7 @@ clickMenu()
 return cy.get(':nth-child(1) > .ast-mobile-svg');
  
 }
-clickMenuContact()
-{
-return cy.get
-('.ast-mobile-header-content > .ast-builder-menu-1 > .ast-main-header-bar-alignment > .main-header-bar-navigation > #site-navigation > .main-navigation > #ast-hf-menu-1 > .menu-item-573 > .menu-link');
- 
-}
+
 getName()
 {
 return cy.get('#wpforms-546-field_3');
