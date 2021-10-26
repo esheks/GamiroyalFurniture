@@ -58,7 +58,7 @@ describe('My  Mobile Contact page Test Suite', function()
     
     it('My ContactPage form positive Test case',function() {
     contactPage.inputValidData(this.data.name,this.data.phone,this.data.email,this.data.message);//name,phone,email,message
-    //contactPage.elements.clickSubmit().click({force:true});//click submit
+    contactPage.elements.clickSubmit().click({force:true});//click submit
     });
     
 
