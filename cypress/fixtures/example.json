@@ -3,5 +3,7 @@
   "phone": "12345",
   "email": "nice@cypress.io",
   "invalidemail":"ty",
-  "message": "Fixtures are a great way to mock data for responses to routes"
+  "message": "Fixtures are a great way to mock data for responses to routes",
+  "expected": "This field is required.",
+  "expectInvalidEmail": "Please enter a valid email address."
 }

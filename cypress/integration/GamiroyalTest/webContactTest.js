@@ -3,7 +3,10 @@ import ContactPage from '../../support/pageObjects/ContactPage'
 
 describe('My Contact page Test Suite', function() 
 {
-    beforeEach(function() 
+     //import page class 
+     const contactPage=new ContactPage()
+    
+     beforeEach(function() 
     {
         //WEBSITE TEST
         // runs once before all website tests in the block
@@ -17,11 +20,9 @@ describe('My Contact page Test Suite', function()
         cy.contains('Contact').click({force: true});
     })
      
-    //import page class 
-     const contactPage=new ContactPage()
 
     it('Confirm text on contact page',function() {
-    cy.title().should("eq", "Contact -");
+    cy.title().should("includes", "Contact");
     cy.contains('Contact');
     cy.contains('SEND US A MESSAGE');
     cy.contains('Get In Touch');
@@ -29,44 +30,33 @@ describe('My Contact page Test Suite', function()
     });
     
     it('Requires name in contact form',function() {
-    contactPage.getPhone().type(this.data.phone);//phone
-    contactPage.getEmail().type(this.data.email);//email
-    contactPage.clickSubmit().click({force:true});//click submit
-    contactPage.nameError().should('have.text','This field is required.')//assert text
+    contactPage.inputPhoneEmail(this.data.phone,this.data.email);//phone,email
+    contactPage.elements.clickSubmit().click({force:true});//click submit
+    contactPage.elements.errorName().should('have.text', this.data.expected)//assert tex
     });
 
     it('Requires phone in contact form',function() {
-    contactPage.getName().type(this.data.name);//name
-    contactPage.getEmail().type(this.data.email);//email
-    contactPage.clickSubmit().click({force:true});// click submit
-    contactPage.phoneError().should('have.text','This field is required.')//assert text
+    contactPage.inputNameEmail(this.data.name, this.data.email);//name,email
+    contactPage.elements.clickSubmit().click({force:true});//click submit
+    contactPage.elements.errorPhone().should('have.text', this.data.expected)//assert text
     });
 
     it('Requires email in contact form',function() {
-    contactPage.getName().type(this.data.name);//name
-    contactPage.getPhone().type(this.data.phone);//phone
-    contactPage.clickSubmit().click({force:true});//click submit
-    contactPage.emailError().should('have.text','This field is required.')//assert text
+    contactPage.inputNamePhone(this.data.name, this.data.phone);//name,phone
+    contactPage.elements.clickSubmit().click({force:true});//click submit
+    contactPage.elements.errorEmail().should('have.text', this.data.expected)//assert text
+    
     });
 
-
-
     it('Requires valid email in contact form',function() {
-    contactPage.getName().type(this.data.name);//name
-    contactPage.getPhone().type(this.data.phone);//phone
-    contactPage.getEmail().type(this.data.invalidemail);// invalid email
-    contactPage.getMessage().type(this.data.message)//message
-    contactPage.clickSubmit().click({force:true});//click submit
-    contactPage.emailError().should('have.text','Please enter a valid email address.')//assert text
+    contactPage.inputInvalidEmail(this.data.name, this.data.phone, this.data.invalidemail);//name,phone,invalidemail
+    contactPage.elements.clickSubmit().click({force:true});//click submit
+    contactPage.elements.errorEmail().should('have.text', this.data.expectInvalidEmail)//assert text
     });
 
     it('My ContactPage form positive Test case',function() {
-    contactPage.getName().type(this.data.name);//name
-    contactPage.getPhone().type(this.data.phone);//phone
-    contactPage.getEmail().type(this.data.email);// valid email
-    contactPage.getMessage().type(this.data.message)// message
-    contactPage.clickSubmit().click()//click submit
-    cy.screenshot();
+    contactPage.inputValidData(this.data.name,this.data.phone,this.data.email,this.data.message);//name,phone,email,message
+    //contactPage.elements.clickSubmit().click({force:true});//click submit
     });
 
 
